@@ -1,0 +1,50 @@
+# This is a sample workflow file that tests the connection to a Couchbase cluster
+# to be used in a Couchbase starter kit project. You can copy this file to your
+# project and modify it to suit your framework and language requirements.
+
+name: Test Couchbase connection
+on: [workflow_dispatch]
+defaults:
+  run:
+    shell: cbsh --script {0}
+
+env:
+  COUCHBASE_DEFAULT_BUCKET:  spring_${{ vars.COUCHBASE_DEFAULT_BUCKET }}
+  COUCHBASE_DEFAULT_SCOPE:  ${{ github.head_ref || github.ref_name }}_${{ vars.COUCHBASE_DEFAULT_SCOPE }}
+  COUCHBASE_DEFAULT_COLLECTION:  ${{ vars.COUCHBASE_DEFAULT_COLLECTION  }}
+  SPRING_COUCHBASE_CONNECTION_STRING: ${{ secrets.COUCHBASE_CONNECTION_STRING }}
+  SPRING_COUCHBASE_USERNAME: ${{ secrets.COUCHBASE_USERNAME }}
+  SPRING_COUCHBASE_PASSWORD: ${{ secrets.COUCHBASE_PASSWORD }}
+  COUCHBASE_USE_CAPELLA: ${{ vars.COUCHBASE_USE_CAPELLA }}
+  COUCHBASE_OTLP_ENABLED: ${{ vars.COUCHBASE_OTLP_ENABLED }}
+
+jobs:
+  setup:
+    runs-on: ubuntu-22.04
+    steps:
+    - name: Checkout ${{ github.event.repository.name }}
+      uses: actions/checkout@v4
+    - uses: actions-rust-lang/setup-rust-toolchain@v1
+    - uses: ldoguin/setup-cbsh@develop
+      with:
+        version: 'nightly'
+        branch: 'main'
+        enable-plugins: ''
+        config:  ${{ secrets.CBSHELL_CONFIG }}
+    - name: Setup Couchbase Bucket, Scope, Collection
+      run: |
+          source ${{ github.workspace }}/scripts/dbSetup.nu
+          dbSetup $env.COUCHBASE_DEFAULT_BUCKET $env.COUCHBASE_DEFAULT_SCOPE $env.COUCHBASE_DEFAULT_COLLECTION
+    - name: Set up JDK
+      uses: actions/setup-java@v4
+      with:
+          java-version: '17'
+          distribution: 'temurin'
+    - name: Setup Gradle
+      uses: gradle/actions/setup-gradle@v4
+    - name: Execute Gradle build
+      run: ./gradlew build
+    - name: Tear Down Bucket
+      run: |
+        cb-env bucket $env.COUCHBASE_DEFAULT_BUCKET
+        scopes drop $env.COUCHBASE_DEFAULT_SCOPE

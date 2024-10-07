@@ -1,0 +1,20 @@
+{
+  "name": "couchbase-node-starter",
+  "version": "0.0.1",
+  "description": "Couchbase Node.js Starter Kit",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github"
+  },
+  "keywords": [
+    "couchbase",
+    "starter",
+    "kit"
+  ],
+  "author": "Alex Patterson",
+  "license": "MIT"
+}

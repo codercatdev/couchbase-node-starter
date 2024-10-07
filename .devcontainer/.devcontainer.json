@@ -1,0 +1,101 @@
+{
+    "name": "Couchbase [Framework] Workspace",
+    "image": "laurentdoguin/workspace-couchbase-Framework-replace-with-yours",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "optional-add-any-vscode-extensions-you-want-to-install"
+            ]
+        }
+    },
+    "runArgs": [
+        "--cap-add=SYS_PTRACE",
+        "--security-opt",
+        "seccomp=unconfined"
+    ],
+    "forwardPorts": [8080, 8091, 8092, 8093, 8094, 8095, 8096, 11207, 11210, 11211, 18091, 18092, 18093, 18094, 18095, 18096],
+    "portsAttributes": {
+        "8080": {
+            "label": "Application",
+            "onAutoForward": "openBrowser",
+            "visibility": "public"
+        },
+        "8091": {
+            "label": "Couchbase Web Console",
+            "onAutoForward": "openBrowser",
+            "visibility": "public"
+        },
+        "8092": {
+            "label": "Views, Queries, XDCR",
+            "onAutoForward": "ignore",
+            "visibility": "public"
+        },
+        "8093": {
+            "label": "Query Services",
+            "onAutoForward": "ignore",
+            "visibility": "public"
+        },
+        "8094": {
+            "label": "Full-text Search",
+            "onAutoForward": "ignore",
+            "visibility": "public"
+        },
+        "8095": {
+            "label": "Analytics",
+            "onAutoForward": "ignore",
+            "visibility": "public"
+        },
+        "8096": {
+            "label": "Eventing",
+            "onAutoForward": "ignore",
+            "visibility": "public"
+        },
+        "11207": {
+            "label": "SSL Smart Client Library Access",
+            "onAutoForward": "ignore",
+            "visibility": "public"
+        },
+        "11210": {
+            "label": "Smart Client Library/Moxi Access",
+            "onAutoForward": "ignore",
+            "visibility": "public"
+        },
+        "11211": {
+            "label": "Legacy Non-smart Client Library Access",
+            "onAutoForward": "ignore",
+            "visibility": "public"
+        },
+        "18091": {
+            "label": "SSL Couchbase Web Console",
+            "onAutoForward": "ignore",
+            "visibility": "public"
+        },
+        "18092": {
+            "label": "SSL Views, Queries, XDCR",
+            "onAutoForward": "ignore",
+            "visibility": "public"
+        },
+        "18093": {
+            "label": "SSL Query Services",
+            "onAutoForward": "ignore",
+            "visibility": "public"
+        },
+        "18094": {
+            "label": "SSL Full-text Search",
+            "onAutoForward": "ignore",
+            "visibility": "public"
+        },
+        "18095": {
+            "label": "SSL Analytics",
+            "onAutoForward": "ignore",
+            "visibility": "public"
+        },
+        "18096": {
+            "label": "SSL Eventing",
+            "onAutoForward": "ignore",
+            "visibility": "public"
+        }
+    },
+    "postCreateCommand": "bash .devcontainer/postCreate.sh",
+    "postStartCommand": "bash .devcontainer/postStart.sh"
+}
