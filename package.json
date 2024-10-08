@@ -16,5 +16,9 @@
     "kit"
   ],
   "author": "Alex Patterson",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "couchbase": "^4.4.2",
+    "dotenv": "^16.4.5"
+  }
 }

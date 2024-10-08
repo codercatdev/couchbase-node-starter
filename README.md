@@ -2,7 +2,7 @@
 This is a sample README.md file for a Couchbase Starter Kit. It includes a template for the README file that you can use in your repository. You can copy the contents of this file and replace the placeholders with the appropriate information for your starter kit.
 -->
 
-# Couchbase [Node/Typescript] Starter Kit
+# Couchbase [Node/JavaScript] Starter Kit
 
 ![Test Suite](https://github.com/couchbase-starter-kit/URL/actions/workflows/run-tests.yml/badge.svg)
 ![Couchbase Capella](https://img.shields.io/badge/Couchbase_Capella-Enabled-red)
