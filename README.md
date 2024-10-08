@@ -4,7 +4,7 @@ This is a sample README.md file for a Couchbase Starter Kit. It includes a templ
 
 # Couchbase [Node/JavaScript] Starter Kit
 
-![Test Suite](https://github.com/couchbase-starter-kit/URL/actions/workflows/run-tests.yml/badge.svg)
+![Test Suite](https://github.com/codercatdev/couchbase-node-starter/actions/workflows/test-connection.yml/badge.svg)
 ![Couchbase Capella](https://img.shields.io/badge/Couchbase_Capella-Enabled-red)
 [![License: MIT](https://cdn.prod.website-files.com/5e0f1144930a8bc8aace526c/65dd9eb5aaca434fac4f1c34_License-MIT-blue.svg)](/LICENSE)
 ![Static Badge](https://img.shields.io/badge/Code_of_Conduct-Contributor_Covenant-violet.svg)
