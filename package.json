@@ -8,17 +8,21 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github"
+    "url": "https://github.com/codercatdev/couchbase-node-starter.git"
   },
   "keywords": [
     "couchbase",
     "starter",
-    "kit"
+    "kit",
+    "node.js"
   ],
   "author": "Alex Patterson",
   "license": "MIT",
   "dependencies": {
     "couchbase": "^4.4.2",
     "dotenv": "^16.4.5"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
   }
 }

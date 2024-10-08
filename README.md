@@ -41,14 +41,14 @@ You will also need an account on Couchbase Capella to create a cluster and obtai
 **Clone the repository**
 
 ```bash
-git clone https://github.com/couchbase-starter-kit/couchbase.git
+git clone https://github.com/codercatdev/couchbase-node-starter.git
 cd URL
 ```
 
 **Install dependencies**
 
 ```bash
-bundle install
+npm install
 ```
 
 **Configure Couchbase Credentials**
@@ -67,22 +67,22 @@ COUCHBASE_OTLP_ENABLED=false
 COUCHBASE_OTLP_ENDPOINT=
 ```
 
-You can obtain those credentials by first creating an account on Couchbase Capella at [https://cloud.couchbase.com/](https://cloud.couchbase.com/) and then creating a database called `rails_starter_app`. Inside the database, create a bucket. The name of the bucket is what you should use for the `COUCHBASE_DEFAULT_BUCKET` environment variable.
+You can obtain those credentials by first creating an account on Couchbase Capella at [https://cloud.couchbase.com/](https://cloud.couchbase.com/) and then creating a database called `node_starter_app`. Inside the database, create a bucket. The name of the bucket is what you should use for the `COUCHBASE_DEFAULT_BUCKET` environment variable (for now this is hardcoded).
 
 Once you have done so, you can navigate to the `Connect` tab in the database and copy the connection string URL. This is what you should use for the `NODE_COUCHBASE_CONNECTION_STRING` environment variable. You will also need to create a user with the appropriate permissions and use the username and password for the `NODE_COUCHBASE_USERNAME` and `NODE_COUCHBASE_PASSWORD` environment variables.
 
 **Running the Test Suite**
 
-This application includes the beginnings of a test suite using [language testing framework]. To run the test suite, use the following command:
+This application includes the beginnings of a test suite using Jest. To run the test suite, use the following command:
 
 ```bash
-framework testing command line
+npx jest
 ```
 
-This will run all the tests and output the results in the terminal. You can run any specific test file by passing the file path as an argument to the `command_to_run_tests` command, as follows:
+This will run all the tests and output the results in the terminal. You can run any specific test file by passing the file path as an argument to the `npx test` command, as follows:
 
 ```bash
-framework testing command line path/to/test/file
+npx test -- something.test.js
 ```
 
 **Starting the Application**
@@ -90,10 +90,10 @@ framework testing command line path/to/test/file
 To start the application, run the following command:
 
 ```bash
-framework start command line
+npm run start
 ```
 
-This will start the [framework] server, and you can access the application at [url:port](url:port).
+This will start the [Node.js] server, and the command will run automatically showing the results in the command line.
 
 ### Contributing
 
