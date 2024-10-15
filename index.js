@@ -5,7 +5,7 @@ async function main() {
     const clusterConnStr = process.env.NODE_COUCHBASE_CONNECTION_STRING;
     const username = process.env.NODE_COUCHBASE_USERNAME;
     const password = process.env.NODE_COUCHBASE_PASSWORD;
-    const bucketName = 'travel-sample'
+    const bucketName = process.env.COUCHBASE_DEFAULT_BUCKET
 
     const cluster = await couchbase.connect(clusterConnStr, {
         username: username,
