@@ -24,11 +24,9 @@ jobs:
     steps:
     - name: Checkout ${{ github.event.repository.name }}
       uses: actions/checkout@v4
-    - uses: actions-rust-lang/setup-rust-toolchain@v1
     - uses: ldoguin/setup-cbsh@develop
       with:
-        version: 'nightly'
-        branch: 'main'
+        version: '1.0.0'
         enable-plugins: ''
         config:  ${{ secrets.CBSHELL_CONFIG }}
     - name: Setup Couchbase Bucket, Scope, Collection
