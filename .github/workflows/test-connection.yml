@@ -9,7 +9,7 @@ defaults:
     shell: cbsh --script {0}
 
 env:
-  COUCHBASE_DEFAULT_BUCKET:  spring_${{ vars.COUCHBASE_DEFAULT_BUCKET }}
+  COUCHBASE_DEFAULT_BUCKET:  ${{ vars.COUCHBASE_DEFAULT_BUCKET }}
   COUCHBASE_DEFAULT_SCOPE:  ${{ github.head_ref || github.ref_name }}_${{ vars.COUCHBASE_DEFAULT_SCOPE }}
   COUCHBASE_DEFAULT_COLLECTION:  ${{ vars.COUCHBASE_DEFAULT_COLLECTION  }}
   COUCHBASE_CONNECTION_STRING: ${{ secrets.COUCHBASE_CONNECTION_STRING }}
@@ -35,14 +35,9 @@ jobs:
           source ${{ github.workspace }}/scripts/dbSetup.nu
           dbSetup $env.COUCHBASE_DEFAULT_BUCKET $env.COUCHBASE_DEFAULT_SCOPE $env.COUCHBASE_DEFAULT_COLLECTION
     - name: Set up JDK
-      uses: actions/setup-java@v4
+      uses: actions/setup-node@v4
       with:
-          java-version: '17'
-          distribution: 'temurin'
-    - name: Setup Gradle
-      uses: gradle/actions/setup-gradle@v4
-    - name: Execute Gradle build
-      run: ./gradlew build
+          node-version: '20'
     - name: Tear Down Bucket
       run: |
         cb-env bucket $env.COUCHBASE_DEFAULT_BUCKET

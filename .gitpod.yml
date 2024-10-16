@@ -2,29 +2,26 @@
 # to be used in a Couchbase starter kit project. You can copy this file to your
 # project and modify it to suit your framework and language requirements.
 
-image: laurentdoguin/workspace-couchbase-ruby-3
+image: laurentdoguin/workspace-couchbase-node
 
 # Commands that will run on workspace start
 tasks:
   - name: Start Couchbase Server
     command: |
       sudo /entrypoint.sh couchbase-server
-  - name: Build the Java Project
+  - name: Build the Node.js Project
     init: |
       source ./scripts/setLocalEnv
       eval $(gp env -e)
     command: |
       gp await-port 8091
       cbsh -c "source ./scripts/dbSetup.nu; dbSetup $COUCHBASE_DEFAULT_BUCKET $COUCHBASE_DEFAULT_SCOPE $COUCHBASE_DEFAULT_COLLECTION"
-      bundle install
+      npm install
 
 # PreInstalled Couchbase and Java Extension
 vscode:
     extensions:
         - "couchbase.vscode-couchbase"
-        - "Shopify.ruby-lsp"
-        - "Shopify.ruby-extensions-pack"
-        - "hridoy.rails-snippets"
 
 # exposed ports
 ports:
