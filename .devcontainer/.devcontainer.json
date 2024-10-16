@@ -1,10 +1,10 @@
 {
     "name": "Couchbase [Framework] Workspace",
-    "image": "laurentdoguin/workspace-couchbase-Framework-replace-with-yours",
+    "image": "laurentdoguin/workspace-couchbase-node",
     "customizations": {
         "vscode": {
             "extensions": [
-                "optional-add-any-vscode-extensions-you-want-to-install"
+                "couchbase.vscode-couchbase"
             ]
         }
     },

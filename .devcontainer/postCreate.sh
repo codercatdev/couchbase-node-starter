@@ -1,11 +1,11 @@
 #!/bin/bash
 
 # Export Couchbase related environment variables
-export RAILS_COUCHBASE_CONNECTION_STRING="couchbase://localhost"
-export RAILS_COUCHBASE_USERNAME="Administrator"
-export RAILS_COUCHBASE_PASSWORD="password"
+export NODE_COUCHBASE_CONNECTION_STRING="couchbase://localhost"
+export NODE_COUCHBASE_USERNAME="Administrator"
+export NODE_COUCHBASE_PASSWORD="password"
 export COUCHBASE_USE_CAPELLA=false
-export COUCHBASE_DEFAULT_BUCKET="default"
+export COUCHBASE_DEFAULT_BUCKET="travel-sample"
 export COUCHBASE_DEFAULT_SCOPE="_default"
 export COUCHBASE_DEFAULT_COLLECTION="_default"
 export COUCHBASE_OTLP_ENABLED=false
